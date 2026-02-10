@@ -1,4 +1,4 @@
-# 🌟 Software Engineering - Assessment Portfolio
+# 🌟 Software Engineering - Assessment 
 
 Welcome to the **Software Engineering Assessment Repository**. This repository contains multiple system design and implementation assignments focused on **UML Modeling using StarUML** and **Program Dependency Implementation using C , Python , Java Languages**.
 
