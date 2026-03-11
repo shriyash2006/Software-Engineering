@@ -13,22 +13,122 @@ Pharmacist --> (Add Medicine)
 @enduml
 
 ##Class Diagram
+@startuml
+class User {
++searchMedicine()
+}
+
+class Medicine {
+-name
+-quantity
++checkAvailability()
+}
+
+class Pharmacy {
+-id
++updateStock()
+}
+
+User --> Medicine
+Pharmacy --> Medicine
+@enduml
 
 ##Sequence Diagram
+@startuml
+actor User
+participant System
+database Database
 
+User -> System : Search Medicine
+System -> Database : Query Medicine
+Database --> System : Return Availability
+System --> User : Show Result
+@enduml
 
 ##Collaboration Diagram
+@startuml
+object User
+object System
+object Database
+
+User -> System : request medicine
+System -> Database : check availability
+Database -> System : return result
+System -> User : display result
+@enduml
 
 ##State chart diagram
+@startuml
+[*] --> Requested
+Requested --> CheckingStock
+CheckingStock --> Available
+CheckingStock --> OutOfStock
+Available --> [*]
+OutOfStock --> [*]
+@enduml
 
 
 ##Flow chart diagram
+@startuml
+start
+:Enter Medicine Name;
+:Check Database;
+if (Medicine Available?) then (Yes)
+:Display Available;
+else (No)
+:Display Out of Stock;
+endif
+stop
+@enduml
 
 
 ##Component diagram
+@startuml
+package "Medicine Availability System" {
+[User Interface]
+[Medicine Service]
+[Database]
+
+[User Interface] --> [Medicine Service]
+[Medicine Service] --> [Database]
+}
+@enduml
 
 
 ##Deployment diagram
+@startuml
+node Client {
+component Browser
+}
+
+node "Application Server" {
+component MedicineSystem
+}
+
+node "Database Server" {
+database MedicineDB
+}
+
+Browser --> MedicineSystem
+MedicineSystem --> MedicineDB
+@enduml
 
 
 ##Package diagram
+@startuml
+package UserPackage {
+class User
+}
+
+package MedicinePackage {
+class Medicine
+class Pharmacy
+}
+
+package DatabasePackage {
+class MedicineDB
+}
+
+UserPackage --> MedicinePackage
+MedicinePackage --> DatabasePackage
+@enduml
