@@ -1,1 +1,34 @@
+##UseCase Diagram
+@startuml
+left to right direction
+actor User
+actor Pharmacist
 
+rectangle "Medicine Availability System" {
+User --> (Search Medicine)
+User --> (Check Availability)
+Pharmacist --> (Update Medicine Stock)
+Pharmacist --> (Add Medicine)
+}
+@enduml
+
+##Class Diagram
+
+##Sequence Diagram
+
+
+##Collaboration Diagram
+
+##State chart diagram
+
+
+##Flow chart diagram
+
+
+##Component diagram
+
+
+##Deployment diagram
+
+
+##Package diagram
